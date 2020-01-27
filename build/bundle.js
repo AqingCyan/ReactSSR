@@ -86,15 +86,15 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/containers/Home/index.js":
-/*!**************************************!*\
-  !*** ./src/containers/Home/index.js ***!
-  \**************************************/
+/***/ "./src/containers/Home/index.jsx":
+/*!***************************************!*\
+  !*** ./src/containers/Home/index.jsx ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar React = __webpack_require__(/*! react */ \"react\");\n\nvar Home = function Home() {\n  return React.createElement(\n    'div',\n    null,\n    'home'\n  );\n};\n\nmodule.exports = {\n  default: Home\n};\n\n//# sourceURL=webpack:///./src/containers/Home/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home() {\n  return _react2.default.createElement(\n    'h1',\n    null,\n    'Hello React SSR'\n  );\n};\n\nexports.default = Home;\n\n//# sourceURL=webpack:///./src/containers/Home/index.jsx?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("\n\nvar React = __webpack_require__(/*! react */ \"react\");\n\nvar Home =
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar express = __webpack_require__(/*! express */ \"express\");\nvar Home = __webpack_require__(/*! ./containers/Home */ \"./src/containers/Home/index.js\");\n\nvar app = express();\n\napp.get('/', function (req, res) {\n  return res.send('<h1>Hello World</h1>');\n});\n\napp.listen(3000, function () {\n  return console.log('Example app listening on port 3000!');\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\nvar _express = __webpack_require__(/*! express */ \"express\");\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n\nvar _server2 = _interopRequireDefault(_server);\n\nvar _index = __webpack_require__(/*! ./containers/Home/index.jsx */ \"./src/containers/Home/index.jsx\");\n\nvar _index2 = _interopRequireDefault(_index);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar renderToString = _server2.default.renderToString;\n\nvar app = (0, _express2.default)();\n\napp.get('/', function (req, res) {\n  return res.send(renderToString(_react2.default.createElement(_index2.default, null)));\n});\n\napp.listen(3000, function () {\n  return console.log('Example app listening on port 3000!');\n});\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -129,6 +129,17 @@ eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///externa
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"react\");\n\n//# sourceURL=webpack:///external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-dom/server":
+/*!***********************************!*\
+  !*** external "react-dom/server" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
 
 /***/ })
 

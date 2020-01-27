@@ -4,7 +4,8 @@
   "description": "React SSR",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/bundle.js"
+    "start": "node ./build/bundle.js",
+    "build": "webpack --config webpack.server.js"
   },
   "keywords": [
     "React",
@@ -20,6 +21,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "express": "^4.17.1",
     "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
