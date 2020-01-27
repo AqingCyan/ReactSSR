@@ -1,1 +1,1 @@
-# SSR与CSR的对比
+# What is server-side rendering
