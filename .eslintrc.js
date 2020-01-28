@@ -24,5 +24,7 @@ module.exports = {
   rules: {
     'semi': 0,
     'react/jsx-filename-extension': 0,
+    'react/prop-types': 0,
+    'react/jsx-one-expression-per-line': 0,
   },
 };

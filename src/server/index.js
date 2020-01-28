@@ -1,5 +1,5 @@
 import Express from 'express'
-import { render } from './util'
+import render from './util'
 
 const app = Express()
 app.use(Express.static('public'))
