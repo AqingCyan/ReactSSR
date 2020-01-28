@@ -1,19 +1,15 @@
 import React from 'react'
 import ReactDomServer from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import Routes from '../Routes'
+import getStore from '../store'
 
 const { renderToString } = ReactDomServer
 
 export default (req) => {
-  const reducer = (state = { name: 'cyan' }, action) => state
-  const store = createStore(reducer, applyMiddleware(thunk))
-
   const content = renderToString((
-    <Provider store={store}>
+    <Provider store={getStore()}>
       <StaticRouter location={req.path}>
         {Routes}
       </StaticRouter>
