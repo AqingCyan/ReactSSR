@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:**",
     "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\"",
-    "dev:build:server": "webpack --config webpack.server.js --watch",
-    "dev:build:client": "webpack --config webpack.client.js --watch",
+    "dev:build:server": "webpack --config webpack/webpack.server.js --watch",
+    "dev:build:client": "webpack --config webpack/webpack.client.js --watch",
     "docs": "docsify serve ./docs"
   },
   "keywords": [
@@ -27,6 +27,7 @@
     "react-dom": "^16.12.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
