@@ -9,13 +9,16 @@ class Home extends PureComponent {
     gethomelist()
   }
 
+  getList() {
+    const { list } = this.props
+    return list.map(({ id, title }) => <p key={id}>· {title}</p>)
+  }
+
   render() {
-    const { name } = this.props
     return (
       <div>
         <Header />
-        <h1>Hello {name}</h1>
-        <p>Let us learn SSR</p>
+        {this.getList()}
         <button type="button" onClick={() => alert('click this')}>Click me!</button>
       </div>
     )
@@ -23,7 +26,7 @@ class Home extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  name: state.home.name,
+  list: state.home.newsList,
 })
 
 const mapDispatchToProps = (dispatch) => ({
