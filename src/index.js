@@ -1,7 +1,7 @@
 import Express from 'express'
 import React from 'react'
 import ReactDomServer from 'react-dom/server'
-import Home from './containers/Home/index.jsx'
+import Home from './containers/Home'
 
 const { renderToString } = ReactDomServer
 const app = Express()

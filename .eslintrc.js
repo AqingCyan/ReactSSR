@@ -23,6 +23,6 @@ module.exports = {
   ],
   rules: {
     'semi': 0,
-    'arrow-parens': 0,
+    'react/jsx-filename-extension': 0,
   },
 };
