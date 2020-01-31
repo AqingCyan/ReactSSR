@@ -24,7 +24,10 @@ app.get('*', (req, res) => {
   Promise.all(promises).then(() => {
     const context = {}
     const html = render(store, routes, req, context)
-    if (context.NotFound) {
+    // 服务器端重定向
+    if (context.action === 'REPLACE') {
+      res.redirect(301, context.url)
+    } else if (context.NotFound) {
       res.status(404)
       res.send(html)
     } else {
