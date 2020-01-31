@@ -18,7 +18,11 @@ app.get('*', (req, res) => {
   const promises = []
   matchedRoutes.forEach((item) => {
     if (item.route.loadData) {
-      promises.push(item.route.loadData(store))
+      // 这里一层封装使得不管哪个请求出现了问题，都能使Promise.all触发，尽可能的准备全数据（容错机制）
+      const promise = new Promise(((resolve) => {
+        item.route.loadData(store).then(resolve).catch(resolve)
+      }))
+      promises.push(promise)
     }
   })
   Promise.all(promises).then(() => {
@@ -33,6 +37,8 @@ app.get('*', (req, res) => {
     } else {
       res.send(html)
     }
+  }).catch(() => {
+    res.send('对不起，数据加载有误')
   })
 })
 
