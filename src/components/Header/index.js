@@ -1,37 +1,49 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { actions } from './store'
 
-const Header = (props) => {
-  const { login } = props
-  return (
-    <div style={{ width: '100%', height: '50px', backgroundColor: 'orange' }}>
-      <Link to="/">
-        <h1 style={{ display: 'inline-block', color: 'white', marginRight: '20px' }}>首页</h1>
-      </Link>
-      {
-        login
-          ? (
-            <div>
-              <Link to="/login">
-                <h1 style={{ display: 'inline-block', color: 'white', marginRight: '20px' }}>翻译</h1>
-              </Link>
-              <Link to="/login">
-                <h1 style={{ display: 'inline-block', color: 'white', marginRight: '20px' }}>注销</h1>
-              </Link>
-            </div>
-          ) : (
-            <Link to="/login">
-              <h1 style={{ display: 'inline-block', color: 'white', marginRight: '20px' }}>登录</h1>
-            </Link>
-          )
-      }
-    </div>
-  )
+class Header extends PureComponent {
+  render() {
+    const { login, handleLogin, handleLogout } = this.props
+    return (
+      <div style={{ width: '100%', height: '50px', backgroundColor: 'orange' }}>
+        <Link to="/">
+          <h1 style={{ display: 'inline-block', color: 'black', marginRight: '20px' }}>首页</h1>
+        </Link>
+        {
+          login
+            ? (
+              <div style={{ display: 'inline-block' }}>
+                <Link to="/login">
+                  <h1 style={{ display: 'inline-block', color: 'black', marginRight: '20px' }}>翻译</h1>
+                </Link>
+                <div onClick={handleLogout} style={{ display: 'inline-block', width: '100px', color: 'black', marginRight: '20px' }}>
+                  <h1 style={{ display: 'inline-block', color: 'black', marginRight: '20px' }}>注销</h1>
+                </div>
+              </div>
+            ) : (
+              <div onClick={handleLogin} style={{ display: 'inline-block', width: '100px', color: 'black', marginRight: '20px' }}>
+                <h1>登录</h1>
+              </div>
+            )
+        }
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => ({
   login: state.header.login,
 })
 
-export default connect(mapStateToProps, null)(Header)
+const mapDispatchToProps = (dispatch) => ({
+  handleLogin() {
+    dispatch(actions.login())
+  },
+  handleLogout() {
+    dispatch(actions.logout())
+  },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
