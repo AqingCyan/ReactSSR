@@ -6,7 +6,7 @@ const changeList = (list) => ({
 })
 
 const getTranslationList = () => (dispatch, getState, axiosInstance) => (
-  axiosInstance.get('/api/translations.json?secret=PP87ANTIPIRATE')
+  axiosInstance.get('/api/translations.json')
     .then((res) => {
       if (res.data.success) {
         const list = res.data.data

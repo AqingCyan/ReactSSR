@@ -5,6 +5,9 @@ const createInstance = (req) => axios.create({
   headers: {
     cookie: req.get('cookie') || '',
   },
+  params: {
+    secret: 'PP87ANTIPIRATE',
+  },
 })
 
 export default createInstance

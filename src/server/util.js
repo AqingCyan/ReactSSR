@@ -6,10 +6,10 @@ import { Provider } from 'react-redux'
 
 const { renderToString } = ReactDomServer
 
-export default (store, routes, req) => {
+export default (store, routes, req, context) => {
   const content = renderToString((
     <Provider store={store}>
-      <StaticRouter location={req.path}>
+      <StaticRouter location={req.path} context={context}>
         {
           renderRoutes(routes)
         }
