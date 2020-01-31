@@ -11,9 +11,9 @@ const reducer = combineReducers({
 })
 
 // 避免所有render公用一个store
-export const getStore = () => (
+export const getStore = (req) => (
   // 改变服务器端的store的内容，就一定要使用serverAxios
-  createStore(reducer, applyMiddleware(thunk.withExtraArgument(serverAxios)))
+  createStore(reducer, applyMiddleware(thunk.withExtraArgument(serverAxios(req))))
 )
 
 export const getClientStore = () => {

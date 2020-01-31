@@ -15,6 +15,6 @@ const App = (props) => {
   )
 }
 
-App.loadData = (store) => store.dispatch(actions.getHeaderInfo())
+App.loadData = (store) => (store.dispatch(actions.getHeaderInfo()))
 
 export default App

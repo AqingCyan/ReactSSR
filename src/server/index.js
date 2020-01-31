@@ -12,7 +12,7 @@ app.use('/api', proxy('http://47.95.113.63', {
 }))
 
 app.get('*', (req, res) => {
-  const store = getStore()
+  const store = getStore(req)
   // 根据路由来获取对应组件的loadData方法，再让matchedRoutes中所有组件的loadData方法执行一次让store拿到state
   const matchedRoutes = matchRoutes(routes, req.path)
   const promises = []
