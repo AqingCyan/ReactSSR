@@ -15,7 +15,7 @@ class Header extends PureComponent {
           login
             ? (
               <div style={{ display: 'inline-block' }}>
-                <Link to="/login">
+                <Link to="/translation">
                   <h1 style={{ display: 'inline-block', color: 'black', marginRight: '20px' }}>翻译</h1>
                 </Link>
                 <div onClick={handleLogout} style={{ display: 'inline-block', width: '100px', color: 'black', marginRight: '20px' }}>
