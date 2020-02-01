@@ -7,7 +7,7 @@ class Home extends PureComponent {
   componentWillMount() {
     const { staticContext } = this.props
     if (staticContext) {
-      staticContext.css = s._getCss()
+      staticContext.css.push(s._getCss())
     }
   }
 

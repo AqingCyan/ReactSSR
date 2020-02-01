@@ -17,7 +17,7 @@ export default (store, routes, req, context) => {
     </Provider>
   ))
 
-  const cssStr = context.css ? context.css : ''
+  const cssStr = context.css.length ? context.css.join('\n') : ''
 
   return (`
     <html lang="zh-CN">

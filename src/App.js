@@ -4,10 +4,10 @@ import Header from './components/Header'
 import { actions } from './components/Header/store'
 
 const App = (props) => {
-  const { route } = props
+  const { route, staticContext } = props
   return (
     <div>
-      <Header />
+      <Header staticContext={staticContext} />
       {
         renderRoutes(route.routes)
       }
