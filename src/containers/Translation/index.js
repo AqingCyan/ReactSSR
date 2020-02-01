@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { Helmet } from 'react-helmet'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import getTranslationList from './store/actions'
@@ -25,7 +26,15 @@ class Translation extends PureComponent {
 
   render() {
     const { login } = this.props
-    return login ? (<div>{this.getList()}</div>) : <Redirect to="/" />
+    return login ? (
+      <div>
+        <Helmet>
+          <title>SSR新闻翻译页</title>
+          <meta name="description" content="React ssr 学习，新闻翻译组件" />
+        </Helmet>
+        {this.getList()}
+      </div>
+    ) : <Redirect to="/" />
   }
 }
 

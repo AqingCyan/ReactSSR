@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import getHomeList from './store/actions'
 import withStyle from '../../withStyle'
 import s from './style.css'
@@ -28,6 +29,10 @@ class Home extends PureComponent {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>React SSR 学习</title>
+          <meta name="description" content="React ssr 学习" />
+        </Helmet>
         {this.getList()}
         <button
           type="button"

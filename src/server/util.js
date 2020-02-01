@@ -3,6 +3,7 @@ import ReactDomServer from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
+import { Helmet } from 'react-helmet'
 
 const { renderToString } = ReactDomServer
 
@@ -16,6 +17,7 @@ export default (store, routes, req, context) => {
       </StaticRouter>
     </Provider>
   ))
+  const helmet = Helmet.renderStatic()
 
   const cssStr = context.css.length ? context.css.join('\n') : ''
 
@@ -23,7 +25,8 @@ export default (store, routes, req, context) => {
     <html lang="zh-CN">
       <head>
         <link rel="icon" href="/favicon.ico"/>
-        <title>React SSR</title>
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
         <style>
           * {
             margin: 0;
