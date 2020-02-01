@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import getHomeList from './store/actions'
+import s from './style.css'
 
 class Home extends PureComponent {
   componentDidMount() {
@@ -16,7 +17,7 @@ class Home extends PureComponent {
     return list.map(({ id, title }, index) => (
       <p
         key={id}
-        style={{ fontSize: '20px', margin: '10px 5px', color: '#333' }}
+        className={s.list}
       >
         {index + 1} {title}
       </p>
@@ -30,17 +31,7 @@ class Home extends PureComponent {
         <button
           type="button"
           onClick={() => alert('click this')}
-          style={{
-            margin: '10px 5px',
-            width: '100px',
-            height: '45px',
-            border: 0,
-            fontSize: '15px',
-            borderRadius: '5px',
-            backgroundColor: '#2d80f7',
-            color: '#fff',
-            outline: 'none',
-          }}
+          className={s.testButton}
         >
           Click me!
         </button>
